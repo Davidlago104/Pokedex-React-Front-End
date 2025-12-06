@@ -5,12 +5,26 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #0075BE;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+logo-container {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+  min-width: 300px;
+  min-height: 300px;
+  display: inline;
+}
+
+logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 
 a {

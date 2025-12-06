@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import pokemon from './assets/pokemon.webp'
+// import pokemon from './assets/pokemon.webp'
+import pokemon from './assets/pokemonyellow.gif'
 
 function App() {
   const [pokemons, setPokemons] = useState([])
@@ -43,8 +44,8 @@ function App() {
 
   return (
     <div id="root">
-      <img src={pokemon} alt="Pokédex Logo" />
-      <h1>The First 151 Pokédex</h1>
+      <div id="logo-container"><img src={pokemon} id="logo" alt="Pokédex Logo" /></div>
+      {/* <h1>The First 151 Pokédex</h1> */}
       {loading ? (
         <p>Loading...</p>
       ) : (
