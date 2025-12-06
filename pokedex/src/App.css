@@ -40,3 +40,36 @@
 .read-the-docs {
   color: #888;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.poke-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  background: black;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.poke-card img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+}
+.poke-name {
+  margin-top: 0.5rem;
+  text-transform: capitalize;
+  font-weight: 600;
+  color: cyan;
+}
+.poke-number {
+  margin-top: 0.25rem;
+  color: #666;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
