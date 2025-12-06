@@ -6,6 +6,7 @@ import pokemon from './assets/pokemonyellow.gif'
 function App() {
   const [pokemons, setPokemons] = useState([])
   const [loading, setLoading] = useState(true)
+  const [selectedPokemon, setSelectedPokemon] = useState(null)
 
   function padId(id) {
     return String(id).padStart(3, '0')
@@ -51,12 +52,31 @@ function App() {
       ) : (
         <div className="grid">
           {pokemons.map((p) => (
-            <div key={p.id} className="card poke-card">
+            <div
+              key={p.id}
+              className="card poke-card"
+              onClick={() => setSelectedPokemon(p)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && setSelectedPokemon(p)}
+            >
               <img src={p.image} alt={p.name} />
               <div className="poke-number">#{padId(p.id)}</div>
               <div className="poke-name">{cap(p.name)}</div>
             </div>
           ))}
+        </div>
+      )}
+
+      {selectedPokemon && (
+        <div className="modal-overlay" onClick={() => setSelectedPokemon(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setSelectedPokemon(null)}>×</button>
+            <img src={selectedPokemon.image} alt={selectedPokemon.name} className="modal-image" />
+            <h2>{cap(selectedPokemon.name)}</h2>
+            <p className="modal-number">Pokédex #{padId(selectedPokemon.id)}</p>
+            <p className="modal-info">Click outside or the × to close</p>
+          </div>
         </div>
       )}
     </div>
